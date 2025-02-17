@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div class="question-content">
+  <h1>{{ page.title }}</h1>
+  <div class="short-answer">
+    <strong>Quick Answer:</strong> {{ page.short_answer }}
+  </div>
+  <div class="explanation">
+    {{ content }}
+  </div>
+
+  <!-- Affiliate snippet -->
+  {% include affiliate.html %}
+
+  <!-- Disclaimer at the bottom -->
+  <hr/>
+  <p><em>{{ page.disclaimer }}</em></p>
+</div>
