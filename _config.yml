@@ -37,6 +37,11 @@ plugins:
   - jekyll-sitemap  # Generates a sitemap.xml for SEO
   - jekyll-seo-tag  # Adds better metadata for search engines
 
+collections:
+  questions:
+    output: true
+    permalink: /questions/:title/
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
