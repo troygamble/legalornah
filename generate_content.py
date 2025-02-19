@@ -12,65 +12,75 @@ load_dotenv()
 # Initialize OpenAI client
 client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
 
-# (Optional) Your Amazon Affiliate ID
-AMAZON_AFFILIATE_ID = "YOURAFFILIATEID-20"
-
-# List of regions to target for global SEO.
-TARGET_REGIONS = ["USA", "UK", "Canada", "Australia", "Germany", "France", "India"]
-
-def generate_seo_friendly_question():
+def generate_seo_friendly_questions(batch_size=5):
     """
-    Generate one SEO-optimized 'Is it legal to ...' question.
-    The question should be highly specific, include a regional reference (state, province, or country),
-    and target a high search volume query.
+    Generate a batch of hyper-targeted, SEO-optimized 'Is it legal to ...' questions.
+    Each question should:
+      - Be highly specific with both a legal concern and a hyper-local reference (e.g., city, county, region).
+      - Use long-tail keywords known for high search volume.
+      - Address trending or evergreen legal topics.
     
-    Expected JSON output:
-    {"question": "Is it legal to drive without insurance in Texas?"}
+    Expected JSON output format:
+    [
+      {"question": "Is it legal to ride an e-scooter without a license in downtown Los Angeles?"},
+      {"question": "Is it legal to operate a drone without registration in central London?"},
+      ...
+    ]
     """
-    # Randomly choose a target region
-    region = random.choice(TARGET_REGIONS)
+    # Choose a random region and then specify a location within it.
+    TARGET_REGIONS = {
+        "USA": ["Los Angeles", "New York", "Chicago", "Houston"],
+        "UK": ["London", "Manchester", "Birmingham", "Glasgow"],
+        "Canada": ["Toronto", "Vancouver", "Montreal", "Calgary"],
+        "Australia": ["Sydney", "Melbourne", "Brisbane", "Perth"],
+        "Germany": ["Berlin", "Munich", "Frankfurt", "Hamburg"],
+        "France": ["Paris", "Lyon", "Marseille", "Nice"],
+        "India": ["Mumbai", "Delhi", "Bangalore", "Chennai"]
+    }
+    region = random.choice(list(TARGET_REGIONS.keys()))
+    location = random.choice(TARGET_REGIONS[region])
+    
     prompt = (
-        f"Generate 1 highly SEO-optimized 'Is it legal to ...' question that has a high search volume on Google for {region}. "
-        "The question should mention a specific state, province, or region name and a common activity or legal concern. "
-        "Ensure it is unique, clear, and directly answerable. "
-        "Return the output in valid JSON format exactly like: "
-        "{\"question\": \"Is it legal to drive without insurance in Texas?\"}"
+        f"Generate {batch_size} highly SEO-optimized 'Is it legal to ...' questions that target high search volume keywords globally. "
+        f"Each question should include a specific legal concern (such as driving without insurance, operating without a license, "
+        f"or using unregistered vehicles) and incorporate a hyper-local reference by mentioning a specific city or region, for example '{location}' in {region}. "
+        "The questions should use actionable verbs and long-tail keywords that align with high search volume queries. "
+        "Make sure each question is unique, compelling, and designed to attract significant organic traffic for global audiences. "
+        "Return the output in a valid JSON array exactly in this format: "
+        '[{"question": "Is it legal to ride an e-scooter without a license in downtown Los Angeles?"}, '
+        '{"question": "Is it legal to operate a drone without registration in central London?"}]'
     )
     
     try:
         response = client.chat.completions.create(
             model="gpt-4-turbo",
             messages=[
-                {"role": "system", "content": "You are an SEO and legal content expert."},
+                {"role": "system", "content": "You are an expert SEO strategist and legal content creator."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.5
         )
         
-        # Extract and parse the JSON response
         questions_json = response.choices[0].message.content.strip()
         data = json.loads(questions_json)
-        question = data.get("question", "").strip()
-        if question:
-            print(f"Generated question for {region}: {question}")
-            return question
+        if isinstance(data, list) and all("question" in item for item in data):
+            print(f"Generated a batch of {len(data)} questions targeting {location}, {region}.")
+            return [item["question"].strip() for item in data]
         else:
-            print("❌ No question found in the API response.")
-            return None
+            print("❌ JSON output did not match expected format.")
+            return []
     except (json.JSONDecodeError, IndexError, AttributeError) as e:
-        print("❌ Failed to generate or parse question:", e)
-        return None
+        print("❌ Failed to generate or parse questions:", e)
+        return []
 
 def generate_answer_content(question, max_retries=3):
     """
     Generate a detailed and structured answer for a legal question.
-    The JSON response should include:
+    The JSON response includes:
       - "short_answer": A concise answer (Yes/No/Depends).
       - "explanation": Two paragraphs explaining the legal background.
       - "disclaimer": A disclaimer note.
       - "trivia": A fun fact related to the topic.
-    
-    Returns the JSON as a Python dict.
     """
     prompt = f"""
 Answer the following legal question in a clear, concise, and structured manner:
@@ -94,24 +104,16 @@ Return your answer in valid JSON format with the keys exactly as: "short_answer"
                 ],
                 temperature=0.5
             )
-
-            # Debug: Log the raw response for troubleshooting
-            print(f"🔍 Answer Attempt {attempt + 1}: Raw API Response:", response)
-
             content = response.choices[0].message.content.strip()
-
             if not content:
                 print(f"⚠️ Warning: Empty response on attempt {attempt + 1}. Retrying...")
                 time.sleep(2)
                 continue
-
             return json.loads(content)
-
         except (json.JSONDecodeError, IndexError, AttributeError) as e:
             print(f"❌ Failed to parse JSON response on attempt {attempt + 1}: {e}")
             print("Response Content:", content if 'content' in locals() else "No content received.")
             time.sleep(2)
-
     print("🚨 Max retries reached. Returning a default answer response.")
     return {
         "short_answer": "It depends.",
@@ -125,32 +127,30 @@ def slugify(text):
     return re.sub(r'[^a-z0-9]+', '-', text.lower()).strip('-')
 
 def main():
-    # Create the output directory if it doesn't exist
     os.makedirs("_questions", exist_ok=True)
-    existing_files = set(os.listdir("_questions"))  # To prevent duplicates
+    existing_files = set(os.listdir("_questions"))
+    
+    target_entries = 5000
+    unique_count = 0
+    max_batches = target_entries // 5 + 10  # extra batches in case some questions are duplicates
 
-    # Set the desired number of iterations (each iteration creates one page)
-    target_entries = 300
-    iterations = 0
-
-    while iterations < target_entries:
-        print(f"\nIteration {iterations + 1} of {target_entries}")
-
-        # Generate a new SEO-friendly question
-        question = generate_seo_friendly_question()
-        if not question:
-            print("⚠️ No question generated, retrying this iteration...")
-            continue  # Skip this iteration if question generation failed
-
-        md_filename = f"{slugify(question)}.md"
-        if md_filename in existing_files:
-            print(f"⚠️ Duplicate question detected, skipping: {question}")
-            iterations += 1  # Count iteration even if duplicate to avoid an infinite loop
+    for batch_num in range(max_batches):
+        print(f"\nProcessing batch {batch_num + 1}")
+        questions = generate_seo_friendly_questions(batch_size=5)
+        if not questions:
+            print("⚠️ No questions generated in this batch, retrying next batch...")
             continue
 
-        # Generate the answer content for the question
-        data = generate_answer_content(question)
-        markdown_content = f"""---
+        for question in questions:
+            md_filename = f"{slugify(question)}.md"
+            # If the file exists, we consider it already processed
+            if md_filename in existing_files:
+                print(f"⚠️ Duplicate file detected for question: {question}")
+                continue
+
+            # Generate answer content for the question
+            data = generate_answer_content(question)
+            markdown_content = f"""---
 layout: question
 title: "{question}"
 short_answer: "{data.get('short_answer', '')}"
@@ -161,15 +161,19 @@ disclaimer: "{data.get('disclaimer', '')}"
 
 **Trivia:** {data.get('trivia', '')}
 """
-        # Save the generated content as a markdown file
-        with open(f"_questions/{md_filename}", "w", encoding="utf-8") as f:
-            f.write(markdown_content)
-        existing_files.add(md_filename)
-        print(f"✅ Saved: {question}")
+            with open(f"_questions/{md_filename}", "w", encoding="utf-8") as f:
+                f.write(markdown_content)
+            existing_files.add(md_filename)
+            unique_count += 1
+            print(f"✅ Saved: {question}")
 
-        iterations += 1
-        # Optional pause to avoid hitting rate limits
+            if unique_count >= target_entries:
+                break
+        if unique_count >= target_entries:
+            break
         time.sleep(1)
+
+    print(f"Finished with {unique_count} unique entries.")
 
 if __name__ == "__main__":
     main()
