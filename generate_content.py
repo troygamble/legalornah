@@ -130,7 +130,7 @@ def main():
     existing_files = set(os.listdir("_questions"))  # To prevent duplicates
 
     # Set the desired number of iterations (each iteration creates one page)
-    target_entries = 10
+    target_entries = 300
     iterations = 0
 
     while iterations < target_entries:
