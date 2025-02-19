@@ -4,24 +4,58 @@ title: Is It Legal?
 description: "A fun Q&A site answering weird and interesting 'Is it legal...?' questions."
 ---
 
-# Welcome to **Is It Legal?** 🚀  
+<!-- Hero Banner Section -->
+<div class="hero-banner" style="background-image: url('/assets/images/hero-bg.jpg'); background-size: cover; background-position: center; padding: 100px 0; text-align: center; color: #fff;">
+  <h1 style="font-size: 48px; margin-bottom: 20px;">Welcome to Is It Legal?</h1>
+  <p style="font-size: 20px; margin-bottom: 30px;">Where bizarre legal questions get surprising answers!</p>
+  <div class="hero-buttons">
+    <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
+    <a href="javascript:void(0);" onclick="location.href=getRandomQuestion();" class="btn hero-btn">Random Question</a>
+  </div>
+</div>
 
-Curious about strange, surprising, and sometimes hilarious legal questions? We've got answers!  
+<!-- Main Content -->
+<section class="content-section">
+  <h2>Featured Questions</h2>
+  <div class="featured-grid">
+    {% assign featured_questions = site.questions | sample:6 %}
+    {% for question in featured_questions %}
+      <div class="featured-item">
+        <a href="{{ question.url }}">
+          <div class="featured-item-inner">
+            <h3>{{ question.title }}</h3>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
 
-## 🔍 **Browse Questions**
-{% for question in site.questions %}
-- [{{ question.title }}]({{ question.url }})
-{% endfor %}
+<!-- Popular Topics -->
+<section class="topics-section">
+  <h2>Popular Topics</h2>
+  <ul class="topics-list">
+    <li>✅ <span class="topic-icon">&#128161;</span> Weird Laws</li>
+    <li>✅ <span class="topic-icon">&#128293;</span> Obscure Legal Loopholes</li>
+    <li>✅ <span class="topic-icon">&#127979;</span> State-Specific Laws</li>
+    <li>✅ <span class="topic-icon">&#128218;</span> Bizarre Historical Laws</li>
+  </ul>
+</section>
 
----
+<!-- Disclaimer & Call-to-Action -->
+<section class="disclaimer-section">
+  <p class="disclaimer">This site is for entertainment purposes only. Laws vary by region. Always consult a legal professional for real legal advice.</p>
+  <p class="call-to-action">Bookmark us & check back often for new AI-generated legal insights!</p>
+</section>
 
-### 🏆 **Popular Topics**
-✅ **Weird Laws**  
-✅ **Obscure Legal Loopholes**  
-✅ **State-Specific Laws**  
-✅ **Bizarre Historical Laws**  
-
-📝 **Disclaimer:** This site is for entertainment purposes only. Laws vary by region. Always consult a legal professional for real legal advice.  
-
----
-📢 **Want more crazy legal facts?** Bookmark us & check back often for new AI-generated insights!
+<script>
+  // Collect all question URLs from the site into an array
+  function getRandomQuestion() {
+    var questions = [
+      {% for question in site.questions %}
+        "{{ question.url }}",
+      {% endfor %}
+    ];
+    return questions[Math.floor(Math.random() * questions.length)];
+  }
+</script>

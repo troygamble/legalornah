@@ -1,0 +1,22 @@
+---
+layout: default
+title: All Legal Questions
+description: "Browse all the weird and interesting legal questions."
+permalink: /questions/
+---
+
+<div class="wrapper">
+  <h1 class="page-heading">Browse All Legal Questions</h1>
+  <ul class="post-list">
+    {% for question in site.questions %}
+      <li>
+        <h2>
+          <a class="post-link" href="{{ question.url }}">{{ question.title }}</a>
+        </h2>
+        {% if question.excerpt %}
+          <p>{{ question.excerpt | strip_html | truncate: 150 }}</p>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
