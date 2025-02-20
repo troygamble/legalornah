@@ -45,7 +45,7 @@ description: "A fun Q&A site answering weird and interesting 'Is it legal...?' q
 <!-- Disclaimer & Call-to-Action -->
 <section class="disclaimer-section">
   <p class="disclaimer">This site is for entertainment purposes only. Laws vary by region. Always consult a legal professional for real legal advice.</p>
-  <p class="call-to-action">Bookmark us & check back often for new AI-generated legal insights!</p>
+  <p class="call-to-action">Bookmark us & check back often for new legal insights!</p>
 </section>
 
 <script>
