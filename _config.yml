@@ -62,3 +62,10 @@ collections:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+#remove if it ruins everything
+defaults:
+  - scope:
+      path: "_question"
+    values:
+      category: funny-legal-books
