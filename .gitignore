@@ -1,6 +1,11 @@
+venv/
+*.py
+cheatsheet.html
 _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 .env
 vendor
+*.backup
+*.backup2
