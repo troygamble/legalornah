@@ -2,10 +2,13 @@
 layout: default
 title: Is It Legal?
 description: "A fun Q&A site answering weird and interesting 'Is it legal...?' questions."
+affiliate_asin: B08XYZ1234  # Replace with the actual product ASIN
+affiliate_title: "Weird Laws: The Funniest Legal Curiosities"
+affiliate_text: "Check out this awesome book about bizarre legal cases:"
 ---
 
 <!-- Hero Banner Section -->
-<div class="hero-banner" style="background-image: url('/assets/images/hero-bg.jpg'); background-size: cover; background-position: center; padding: 100px 0; text-align: center; color: #fff;">
+<div class="hero-banner" style="background-image: url('/assets/images/hero-bg.webp'); background-size: cover; background-position: center; padding: 100px 0; text-align: center; color: #fff;">
   <h1 style="font-size: 48px; margin-bottom: 20px;">Welcome to Is It Legal?</h1>
   <p style="font-size: 20px; margin-bottom: 30px;">Where bizarre legal questions get surprising answers!</p>
   <div class="hero-buttons">
@@ -40,6 +43,11 @@ description: "A fun Q&A site answering weird and interesting 'Is it legal...?' q
     <li>✅ <span class="topic-icon">&#127979;</span> State-Specific Laws</li>
     <li>✅ <span class="topic-icon">&#128218;</span> Bizarre Historical Laws</li>
   </ul>
+</section>
+
+<!-- Amazon Affiliate Section -->
+<section class="affiliate-section">
+  {% include affiliate.html %}
 </section>
 
 <!-- Disclaimer & Call-to-Action -->

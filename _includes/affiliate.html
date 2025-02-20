@@ -1,8 +1,8 @@
 <!-- Amazon Affiliate Link -->
 <div class="affiliate-link">
-    <p>Check out this book about weird laws:</p>
-    <a href="https://www.amazon.com/dp/XXXXXX?tag=YOURAFFILIATEID-20" target="_blank" rel="nofollow noopener">
-      Strange Laws: A Collection of Odd Legal Curiosities
-    </a>
-  </div>
-  
+  <p>{{ page.affiliate_text | default: "Check out this recommended product:" }}</p>
+  <a href="https://www.amazon.com/dp/{{ page.affiliate_asin }}?tag=troyamazon-22"
+     target="_blank" rel="nofollow noopener">
+    {{ page.affiliate_title | default: "Recommended Product" }}
+  </a>
+</div>
