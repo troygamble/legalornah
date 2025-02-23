@@ -1,19 +1,36 @@
 <header class="site-header">
-    <div class="wrapper">
-        <a href="/" class="site-title">Is It Legal?</a>
-        <nav class="site-nav">
-            <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
-            <a href="javascript:void(0);" onclick="getRandomQuestion();" class="btn hero-btn">Random Question</a>
-        </nav>
-    </div>
+  <div class="wrapper">
+      <a href="/" class="site-title">Is It Legal?</a>
+      <nav class="site-nav">
+          <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
+          <a href="javascript:void(0);" onclick="getRandomQuestion();" class="btn hero-btn">Random Question</a>
+      </nav>
+  </div>
 </header>
 
+<!-- ✅ This script now properly filters pages and keeps Browse button functional -->
 <script>
   window.siteQuestions = [
-    {% for question in site.pages %}
-      {% if question.url contains '/questions/' %}
-        "{{ question.url }}",
-      {% endif %}
-    {% endfor %}
+      {% for question in site.pages %}
+          {% if question.url contains '/questions/' and question.url != '/questions/' %}
+              "{{ question.url | relative_url }}",
+          {% endif %}
+      {% endfor %}
   ];
+
+  function getRandomQuestion() {
+      const questions = window.siteQuestions || [];
+      if (questions.length > 0) {
+          const randomIndex = Math.floor(Math.random() * questions.length);
+          const randomQuestion = questions[randomIndex];
+
+          if (randomQuestion) {
+              window.location.href = randomQuestion;
+          } else {
+              console.error("No valid question URL found.");
+          }
+      } else {
+          console.error("No questions available.");
+      }
+  }
 </script>
