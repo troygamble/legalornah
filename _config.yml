@@ -28,3 +28,11 @@ collections:
   questions:
     output: true
     permalink: /questions/:title/
+
+plugins:
+  - jekyll-json-feed
+
+# Generate search index
+collections:
+  search:
+    output: true
