@@ -12,21 +12,7 @@
     <!-- Navigation for all sub-pages -->
     {%- include nav.html -%}
     {%- include adsense.html -%} <!-- Google AdSense snippet added here -->
-
-    <nav class="site-nav" id="site-nav">
-      <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
-      <a href="javascript:void(0);" class="btn hero-btn random-question-btn">Random Question</a>
-      <div class="nav-search">
-        {% if page.url != "/" %}
-          {% include searchsite.html %}
-        {% endif %}
-      </div>
-      <button id="darkModeToggle" class="btn hero-btn" style="margin-left: 1rem;">
-        Toggle Dark Mode
-      </button>
-    </nav>
     
-
     <main class="page-content" aria-label="Content">
         <div class="wrapper">
             <div class="question-content">
