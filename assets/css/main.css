@@ -427,7 +427,9 @@ a:hover {
   color: #555;
   margin-right: 10px;
   font-size: 1.2rem;
+  display: inline-block; /* Ensures icon takes space */
 }
+
 
 
   .fun-facts-grid {

@@ -42,12 +42,12 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
 <section class="topics-section">
   <h2>Popular Legal Topics</h2>
   <p>We cover everything from weird state laws and obscure legal loopholes to surprising historical regulations. Stay informed and entertained with these popular legal curiosities:</p>
-  <ul class="topics-list">
-    <li><i class="fas fa-balance-scale"></i> Weird Laws You Won't Believe Exist</li>
-    <li><i class="fas fa-lightbulb"></i> Obscure Legal Loopholes That Actually Work</li>
-    <li><i class="fas fa-map"></i> State-Specific Laws That Might Surprise You</li>
-    <li><i class="fas fa-hourglass-half"></i> Bizarre Historical Laws Still on the Books</li>
-  </ul>
+<ul class="topics-list">
+  <li><i class="fa-solid fa-scale-balanced"></i> Weird Laws You Won't Believe Exist</li>
+  <li><i class="fa-solid fa-lightbulb"></i> Obscure Legal Loopholes That Actually Work</li>
+  <li><i class="fa-solid fa-map"></i> State-Specific Laws That Might Surprise You</li>
+  <li><i class="fa-solid fa-hourglass-half"></i> Bizarre Historical Laws Still on the Books</li>
+</ul>
 </section>
 
 <!-- Fun Legal Facts Section (Updated) -->
@@ -95,8 +95,9 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
   <a href="/questions/" class="hero-btn">Explore More Questions</a>
 </section>
 
-<!-- Font Awesome CDN -->
+<!-- Latest Font Awesome 6 (Free) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pk1yAtXAdJwIzvu6vEWiKXhU7o2h5YQtJqEQ5Dfzz6fx3J4oHJYhY7ePeA6vHyBozI9T2V6J5VnoCZFKrcuO7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 
 <script>
