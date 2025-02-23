@@ -1,8 +1,10 @@
 ---
-layout: default
-title: Is it legal to fly a drone in London without a permit?
-category: funny-legal-books
+layout: question
+title: "Is it legal to fly a drone in London without a permit?"
+category: "funny-legal-books"
+short_answer: "Depends"
 ---
+
 
 <div class="question-content">
   {% if page.short_answer %}
@@ -15,6 +17,25 @@ category: funny-legal-books
     {{ content }}
   </div>
 
+  <!-- ✅ FAQ Schema Markup for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "{{ page.title | escape }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ page.short_answer | escape }} - {{ content | strip_html | strip_newlines | escape }}"
+        }
+      }
+    ]
+  }
+  </script>
+
   <!-- Disclaimer at the bottom -->
   <hr/>
+  <p><em>This is not legal advice. Laws may vary by region.</em></p>
 </div>

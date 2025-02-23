@@ -742,3 +742,24 @@ a:hover {
     width: 100%;
   }
 }
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.breadcrumb li::after {
+  content: ">";
+  margin: 0 5px;
+}
+.breadcrumb li:last-child::after {
+  content: "";
+}
+.breadcrumb a {
+  color: #3F51B5;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}

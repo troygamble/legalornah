@@ -15,6 +15,52 @@
     
     <main class="page-content" aria-label="Content">
         <div class="wrapper">
+            <!-- ✅ Breadcrumbs for SEO and UX -->
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="{{ site.url }}/">Home</a></li>
+                    {% if page.category %}
+                    <li>
+                      <a href="{{ site.url }}/categories/{{ page.category | slugify }}/">
+                        {{ page.category | capitalize }}
+                      </a>
+                    </li>
+                    {% endif %}
+                    <li aria-current="page">{{ page.title }}</li>
+                </ol>
+            </nav>
+
+            <!-- ✅ Breadcrumb Schema Markup for Google -->
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "{{ site.url }}/"
+                }
+                {% if page.category %},
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "{{ page.category | capitalize }}",
+                  "item": "{{ site.url }}/categories/{{ page.category | slugify }}/"
+                }
+                {% endif %},
+                {
+                  "@type": "ListItem",
+                  "position": {% if page.category %}3{% else %}2{% endif %},
+                  "name": "{{ page.title | escape }}",
+                  "item": "{{ site.url }}{{ page.url }}"
+                }
+              ]
+            }
+            </script>
+
+            <!-- ✅ Main Content Section -->
             <div class="question-content">
               <h1>{{ page.title }}</h1>
               <div class="short-answer">
@@ -28,7 +74,6 @@
               <section class="affiliate-section">
                 {% include affiliate.html %}
               </section>
-            
 
               <!-- Disclaimer at the bottom -->
               <hr/>
