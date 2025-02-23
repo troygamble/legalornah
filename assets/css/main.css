@@ -512,5 +512,12 @@ a:hover {
   }
 
   .cta-section {
-    margin-top: 3rem; /* Added spacing to prevent overlap */
+    margin-top: 2rem;
+    padding-bottom: 2rem; /* Added padding at the bottom to prevent overlap */
   }
+  
+
+  .cta-section .hero-btn {
+    margin-bottom: 1.5rem; /* Adjust the value until it looks right */
+  }
+  
