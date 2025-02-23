@@ -4,6 +4,7 @@ title: Search Results
 description: "Search results for your query."
 ---
 
+<!-- ✅ search.md for results -->
 <section class="search-results">
   <h2>Search Results</h2>
   <ul id="search-results-list"></ul>
