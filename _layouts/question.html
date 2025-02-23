@@ -31,6 +31,33 @@ layout: default
   }
   </script>
 
+  <!-- ✅ Article Schema Markup for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ page.title }}",
+    "author": {
+      "@type": "Organization",
+      "name": "Legal or Nah"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Legal or Nah",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.legalornah.com/assets/images/logo.png"
+      }
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}"
+    }
+  }
+  </script>
+
   <!-- Disclaimer at the bottom -->
   <hr/>
   <p><em>{{ page.disclaimer }}</em></p>

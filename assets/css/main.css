@@ -763,3 +763,40 @@ a:hover {
 .breadcrumb a:hover {
   text-decoration: underline;
 }
+
+/* ✅ Smooth Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Highlight Matching Search Terms */
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* ✅ Trending Searches Styling */
+.trending-searches {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+.trending-searches h3 {
+  font-size: 1.2rem;
+}
+.trending-searches ul {
+  list-style: none;
+  padding: 0;
+}
+.trending-searches li {
+  margin-bottom: 5px;
+}
