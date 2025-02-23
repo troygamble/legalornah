@@ -4,32 +4,44 @@
 
 <header class="site-header">
   <div class="wrapper nav-container">
-    <!-- 🔥 LOGO AREA -->
+    
+    <!-- LOGO -->
     <div class="logo">
       <a href="/">
         <span class="logo-text">Legal Or Nah</span>
       </a>
     </div>
 
-    <!-- 🚀 NAVIGATION BAR -->
+    <!-- NAVIGATION -->
     <nav class="site-nav" id="site-nav">
-      <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
-      <a href="javascript:void(0);" class="btn hero-btn random-question-btn">Random Question</a>
+      <!-- Keep "btn hero-btn" if you want the big orange CTA style specifically 
+           but ideally use something like .nav-link if you want a uniform look. -->
+      <a href="/questions/" class="nav-link">Browse All Questions</a>
+      <a href="javascript:void(0);" class="nav-link random-question-btn">Random Question</a>
 
-      <!-- 🔎 Conditional Search Bar Placement -->
+      <!-- Search -->
       {% if page.url == "/" %}
-        <div class="homepage-search">
-          {% include searchsite.html %}
-        </div>
+      <div class="homepage-search">
+        {% include searchsite.html %}
+      </div>
       {% else %}
-        <div class="nav-search">
-          {% include searchsite.html %}
-        </div>
+      <div class="nav-search">
+        {% include searchsite.html %}
+      </div>
       {% endif %}
 
-      <button id="darkModeToggle" class="btn hero-btn">
+      <button id="darkModeToggle" class="nav-link dark-mode-toggle">
         Toggle Dark Mode
       </button>
     </nav>
+
+    <!-- If you want a hamburger menu for mobile, place it here:
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    -->
   </div>
 </header>
+
