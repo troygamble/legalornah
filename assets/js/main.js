@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 for (let i = 0; i < urls.length; i++) {
                     const url = urls[i].textContent;
-                    if (url.includes("/questions/") && url !== window.location.href) {
+                    // ✅ Exclude the main /questions/ page from the list
+                    if (url.includes("/questions/") && !url.endsWith("/questions/")) {
                         const title = decodeURIComponent(
                             url.split("/").filter(Boolean).pop().replace(/-/g, " ")
                         );
@@ -50,4 +51,16 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch((error) => console.error("Error loading sitemap:", error));
     }
+
+    // === HAMBURGER MENU TOGGLE ===
+    const hamburger = document.getElementById('hamburger-menu');
+    const siteNav = document.getElementById('site-nav');
+
+    if (hamburger && siteNav) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active'); // Animate the bars
+            siteNav.classList.toggle('open');     // Show/hide the nav links
+  });
+}
+
 });

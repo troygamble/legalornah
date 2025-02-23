@@ -12,8 +12,10 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
   <div class="hero-content">
     <h1>Welcome to Is It Legal?</h1>
     <p>Where bizarre legal questions get surprising answers!</p>
+    <a href="/questions/" class="hero-btn">Browse Questions</a>
   </div>
 </div>
+
 
 
 <!-- Main Content -->
