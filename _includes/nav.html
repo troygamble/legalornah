@@ -11,6 +11,9 @@
         <span class="logo-text">Legal Or Nah</span>
       </a>
     </div>
+  
+    
+    
 
     <!-- HAMBURGER (Optional) -->
     <div class="hamburger" id="hamburger-menu">
@@ -23,9 +26,14 @@
     <nav class="site-nav" id="site-nav">
       <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
       <a href="javascript:void(0);" class="btn hero-btn random-question-btn">Random Question</a>
+      
+      <!-- Search included properly here -->
+      <div class="nav-search">
+        {% include searchsite.html %}
+      </div>
+    
       <button id="darkModeToggle" class="btn hero-btn" style="margin-left: 1rem;">
         Toggle Dark Mode
       </button>
     </nav>
-  </div>
 </header>
