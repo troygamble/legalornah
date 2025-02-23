@@ -2,11 +2,12 @@
 {% assign product = site.data.products[page.category] %}
 {% if product %}
 <div class="affiliate-product">
-  <p>Check out this related product:</p>
-  <a target="_blank" href="https://www.amazon.com.{{ product.region }}/dp/{{ product.asin }}?tag=troyamazon-22">
-    <img src="{{ product.image }}" alt="{{ product.title }}" style="width:100%;max-width:300px;">
-  </a>
-  <h3>{{ product.title }}</h3>
-  <p>{{ product.description }}</p>
-</div>
+  <div class="affiliate-product">
+    <p>Check out this related product:</p>
+    <a target="_blank" href="https://www.amazon.com.{{ product.region }}/dp/{{ product.asin }}?tag=troyamazon-22">
+      <img src="{{ product.image }}" alt="{{ product.title }}">
+    </a>
+    <h3>{{ product.title }}</h3>
+    <p>{{ product.description }}</p>
+  </div>  
 {% endif %}
