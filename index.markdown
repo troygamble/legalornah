@@ -7,15 +7,6 @@ affiliate_title: "Weird Laws: The Funniest Legal Curiosities"
 affiliate_text: "Check out this awesome book about bizarre legal cases:"
 ---
 
-<div class="hero-banner">
-  <h1>Welcome to Is It Legal?</h1>
-  <p>Where bizarre legal questions get surprising answers!</p>
-  <div class="hero-buttons">
-    <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
-    <a href="javascript:void(0);" onclick="location.href=getRandomQuestion();" class="btn hero-btn">Random Question</a>
-  </div>
-</div>
-
 
 
 
@@ -47,10 +38,6 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
   </ul>
 </section>
 
-<!-- Amazon Affiliate Section -->
-<section class="affiliate-section">
-  {% include affiliate.html %}
-</section>
 
 <!-- Disclaimer & Call-to-Action -->
 <section class="disclaimer-section">
