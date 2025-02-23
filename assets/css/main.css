@@ -523,3 +523,10 @@ a:hover {
     margin-bottom: 1.5rem; /* Adjust the value until it looks right */
   }
   
+  .material-icons {
+    font-size: 1.5rem;
+    color: #555;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  

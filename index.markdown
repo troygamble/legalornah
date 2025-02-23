@@ -43,11 +43,12 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
   <h2>Popular Legal Topics</h2>
   <p>We cover everything from weird state laws and obscure legal loopholes to surprising historical regulations. Stay informed and entertained with these popular legal curiosities:</p>
 <ul class="topics-list">
-  <li><i class="fa-solid fa-scale-balanced"></i> Weird Laws You Won't Believe Exist</li>
-  <li><i class="fa-solid fa-lightbulb"></i> Obscure Legal Loopholes That Actually Work</li>
-  <li><i class="fa-solid fa-map"></i> State-Specific Laws That Might Surprise You</li>
-  <li><i class="fa-solid fa-hourglass-half"></i> Bizarre Historical Laws Still on the Books</li>
+  <li><span class="material-icons">gavel</span> Weird Laws You Won't Believe Exist</li>
+  <li><span class="material-icons">lightbulb</span> Obscure Legal Loopholes That Actually Work</li>
+  <li><span class="material-icons">map</span> State-Specific Laws That Might Surprise You</li>
+  <li><span class="material-icons">history</span> Bizarre Historical Laws Still on the Books</li>
 </ul>
+
 </section>
 
 <!-- Fun Legal Facts Section (Updated) -->
@@ -55,19 +56,20 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
   <h2>Did You Know?</h2>
   <div class="fun-facts-grid">
     <div class="fun-fact-item">
-      <i class="fas fa-ice-cream"></i>
+      <span class="material-icons">icecream</span>
       <p>In some states, it’s illegal to carry an ice cream cone in your back pocket. 🍦</p>
     </div>
     <div class="fun-fact-item">
-      <i class="fas fa-car"></i>
+      <span class="material-icons">directions_car</span>
       <p>Driving barefoot? Surprisingly, it's legal in all 50 states — but not always recommended.</p>
     </div>
     <div class="fun-fact-item">
-      <i class="fas fa-cat"></i>
+      <span class="material-icons">pets</span>
       <p>In some cities, letting your cat roam freely at night could get you fined!</p>
     </div>
   </div>
 </section>
+
 
 <!-- FAQ Section with Improved Layout -->
 <section class="faq-section">
@@ -95,8 +97,9 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
   <a href="/questions/" class="hero-btn">Explore More Questions</a>
 </section>
 
-<!-- Latest Font Awesome 6 (Free) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pk1yAtXAdJwIzvu6vEWiKXhU7o2h5YQtJqEQ5Dfzz6fx3J4oHJYhY7ePeA6vHyBozI9T2V6J5VnoCZFKrcuO7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 
 
