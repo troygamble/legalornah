@@ -468,7 +468,7 @@ a:hover {
 
   .logo-text {
     font-family: 'Blenda Script', cursive;
-    font-size: 1.5rem; /* Sized to fit 150x40 */
+    font-size: 1.6rem; /* Sized to fit 150x40 adjusts font size */
     color: #ead9bb;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     letter-spacing: 0.5px;
@@ -477,8 +477,8 @@ a:hover {
   }
 
   .logo {
-    height: 40px;
-    width: 150px;
+    height: 50px;
+    width: 170px;
     background-color: #122a3c;
     display: flex;
     align-items: center;
