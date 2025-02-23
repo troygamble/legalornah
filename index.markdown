@@ -18,8 +18,6 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
   </div>
 </div>
 
-<!-- ✅ Search Section on Homepage -->
-{% include searchsite.html %}
 
 <!-- Main Content -->
 <section class="content-section">
