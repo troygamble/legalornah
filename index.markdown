@@ -38,50 +38,65 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
   </div>
 </section>
 
-<!-- Popular Topics -->
+<!-- Popular Topics with Proper Icons -->
 <section class="topics-section">
   <h2>Popular Legal Topics</h2>
   <p>We cover everything from weird state laws and obscure legal loopholes to surprising historical regulations. Stay informed and entertained with these popular legal curiosities:</p>
   <ul class="topics-list">
-    <li><i class="fas fa-gavel"></i> Weird Laws You Won't Believe Exist</li>
-    <li><i class="fas fa-unlock-alt"></i> Obscure Legal Loopholes That Actually Work</li>
-    <li><i class="fas fa-map-marker-alt"></i> State-Specific Laws That Might Surprise You</li>
-    <li><i class="fas fa-history"></i> Bizarre Historical Laws Still on the Books</li>
+    <li><i class="fas fa-balance-scale"></i> Weird Laws You Won't Believe Exist</li>
+    <li><i class="fas fa-lightbulb"></i> Obscure Legal Loopholes That Actually Work</li>
+    <li><i class="fas fa-map"></i> State-Specific Laws That Might Surprise You</li>
+    <li><i class="fas fa-hourglass-half"></i> Bizarre Historical Laws Still on the Books</li>
   </ul>
 </section>
 
-<!-- Fun Legal Facts Section -->
+<!-- Fun Legal Facts Section (Updated) -->
 <section class="fun-facts-section">
   <h2>Did You Know?</h2>
-  <p>From strange state laws to bizarre legal loopholes, the legal world is full of surprises. For example, did you know that in some states, it’s illegal to carry an ice cream cone in your back pocket? 🤔</p>
-  <p>We explore weird laws, unexpected legal facts, and more. Stay curious — bookmark us and check back for fresh legal oddities!</p>
+  <div class="fun-facts-grid">
+    <div class="fun-fact-item">
+      <i class="fas fa-ice-cream"></i>
+      <p>In some states, it’s illegal to carry an ice cream cone in your back pocket. 🍦</p>
+    </div>
+    <div class="fun-fact-item">
+      <i class="fas fa-car"></i>
+      <p>Driving barefoot? Surprisingly, it's legal in all 50 states — but not always recommended.</p>
+    </div>
+    <div class="fun-fact-item">
+      <i class="fas fa-cat"></i>
+      <p>In some cities, letting your cat roam freely at night could get you fined!</p>
+    </div>
+  </div>
 </section>
 
-<!-- FAQ Section for SEO -->
+<!-- FAQ Section with Improved Layout -->
 <section class="faq-section">
   <h2>Frequently Asked Legal Questions</h2>
-  <div class="faq-item">
-    <h3>Is it legal to sleep in your car overnight?</h3>
-    <p>While it's generally legal in many states, some cities have ordinances prohibiting it in certain areas. Always check local regulations!</p>
+  <div class="faq-accordion">
+    <div class="faq-item">
+      <h3>Is it legal to sleep in your car overnight?</h3>
+      <p>While it's generally legal in many states, some cities have ordinances prohibiting it in certain areas. Always check local regulations!</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can you legally own exotic animals?</h3>
+      <p>It depends on the state. Some allow exotic pets with permits, while others have strict bans. Always research your state's laws before purchasing.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is jaywalking actually illegal everywhere?</h3>
+      <p>Jaywalking laws vary by state and city. Some places enforce these laws strictly, while others have more relaxed regulations.</p>
+    </div>
   </div>
-  <div class="faq-item">
-    <h3>Can you legally own exotic animals?</h3>
-    <p>It depends on the state. Some allow exotic pets with permits, while others have strict bans. Always research your state's laws before purchasing.</p>
-  </div>
-  <div class="faq-item">
-    <h3>Is jaywalking actually illegal everywhere?</h3>
-    <p>Jaywalking laws vary by state and city. Some places enforce these laws strictly, while others have more relaxed regulations.</p>
-  </div>
+</section>
+
+<!-- Call-to-Action with Visual Appeal -->
+<section class="cta-section">
+  <h2>Stay Updated with the Latest Legal Oddities!</h2>
+  <p>Love strange legal facts? Bookmark <strong>LegalOrNah</strong> and check back regularly for the newest bizarre laws, curious cases, and surprising loopholes.</p>
+  <a href="/questions/" class="hero-btn">Explore More Questions</a>
 </section>
 
 <!-- Font Awesome CDN -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-<!-- Call-to-Action -->
-<section class="cta-section">
-  <h2>Stay Updated with the Latest Legal Oddities!</h2>
-  <p>Love strange legal facts? Bookmark <strong>LegalOrNah</strong> and check back regularly for the newest bizarre laws, curious cases, and surprising loopholes.</p>
-</section>
 
 <script>
   // Collect all question URLs from the site into an array with fallback
@@ -97,4 +112,3 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
     return questions[Math.floor(Math.random() * questions.length)];
   }
 </script>
-

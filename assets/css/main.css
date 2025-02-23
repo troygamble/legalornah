@@ -428,3 +428,41 @@ a:hover {
   margin-right: 10px;
   font-size: 1.2rem;
 }
+
+<!-- Additional CSS for Updated Sections -->
+<style>
+  .fun-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .fun-fact-item {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    transition: transform 0.3s;
+  }
+  .fun-fact-item:hover {
+    transform: translateY(-5px);
+  }
+  .fun-fact-item i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #3F51B5;
+  }
+  .faq-accordion .faq-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  }
+  .faq-item h3 {
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px;
+  }
+</style>
