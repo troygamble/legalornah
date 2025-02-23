@@ -9,3 +9,5 @@ _site
 vendor
 *.backup
 *.backup2
+*.docx
+*.doc

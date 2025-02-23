@@ -660,13 +660,14 @@ table td {
 }
 
 .hero-banner {
-  background-image: url('{{ "/assets/images/hero-bg.webp" | relative_url }}');
+  background-image: url('/assets/images/hero-bg.webp');
   background-size: cover;
   background-position: center;
   padding: 100px 0;
   text-align: center;
   color: #fff;
 }
+
 
 .hero-btn {
   display: inline-block;
