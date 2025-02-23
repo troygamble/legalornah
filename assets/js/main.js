@@ -53,13 +53,39 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // === HAMBURGER MENU TOGGLE ===
-    const hamburger = document.getElementById('hamburger-menu');
-    const siteNav = document.getElementById('site-nav');
+  const hamburger = document.getElementById('hamburger-menu');
+  const siteNav = document.getElementById('site-nav');
+  if (hamburger && siteNav) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      siteNav.classList.toggle('open');
+    });
+  }
 
-    if (hamburger && siteNav) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active'); // Animate the bars
-            siteNav.classList.toggle('open');     // Show/hide the nav links
+  // === INTERSECTION OBSERVER FOR .fade-in / .slide-in ELEMENTS ===
+  const observerOptions = {
+    threshold: 0.1
+  };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add "visible" class to trigger transition
+        entry.target.classList.add('visible');
+        // Optionally unobserve if you want it to only animate once
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Target elements
+  const fadeInElements = document.querySelectorAll('.fade-in, .slide-in');
+  fadeInElements.forEach(el => observer.observe(el));
+
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark-mode');
+    // or document.body.classList.toggle('dark-mode');
   });
 }
 

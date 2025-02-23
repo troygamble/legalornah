@@ -1,223 +1,389 @@
-/* === RESET === */
+/* === 1. RESET === */
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
   margin: 0;
   padding: 0;
 }
 
-/* === BASIC STYLING === */
+/* === 2. BASIC STYLING / BODY === */
 body {
-  font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #111;
-  background-color: #fdfdfd;
+  /* Google Font "Inter" (ensure you include link tags in <head>) */
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #212121; 
+  background-color: #F5F7FA; /* Light gray background */
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
-  scroll-behavior: smooth;
+  min-height: 100vh;
 }
 
-/* === HEADINGS & TEXT === */
+/* Containers for layout */
+.container,
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* === 3. HEADINGS & TEXT === */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
-  margin-bottom: 15px;
-  letter-spacing: -0.5px;
-  line-height: 1.3;
+  font-weight: 600; /* Slightly bolder headings */
+  color: #212121;
+  margin-bottom: 0.75em;
+}
+p, blockquote, pre, ul, ol, dl, figure {
+  margin-bottom: 1em;
 }
 
-p {
-  line-height: 1.7;
-  margin-bottom: 15px;
-}
-
-/* === LINKS === */
+/* === 4. LINKS === */
 a {
-  color: #2a7ae2;
+  color: #3F51B5; /* Primary accent color (material-inspired indigo) */
   text-decoration: none;
-  position: relative;
+  transition: color 0.2s ease;
 }
-
 a:hover {
-  color: #111;
+  color: #303F9F;
   text-decoration: underline;
 }
 
-/* === ANIMATED UNDERLINE === */
-a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  display: block;
-  margin-top: 5px;
-  right: 0;
-  background: #1b5bbf;
-  transition: width 0.3s ease;
-}
-
-a:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-/* === NAVIGATION === */
+/* ====================================== */
+/*         5. HEADER / NAVIGATION         */
+/* ====================================== */
 .site-header {
-  border-top: 5px solid #424242;
-  border-bottom: 1px solid #e8e8e8;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-  position: sticky;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  position: sticky;  /* optional sticky header */
   top: 0;
   z-index: 1000;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  /* Additional horizontal padding if desired:
+     padding: 0 1rem; */
 }
 
-.site-title {
-  font-size: 26px;
-  font-weight: 300;
-  color: #424242;
+/* Logo text */
+.logo a {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #3F51B5;
+  text-decoration: none;
 }
 
+/* Desktop Nav Links */
 .site-nav {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 10px;
+  gap: 1rem;
 }
-
 .site-nav a {
-  text-align: center;
-  padding: 12px;
-  background-color: #2a7ae2;
-  color: white;
-  border-radius: 5px;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #3F51B5;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
 }
-
 .site-nav a:hover {
-  background-color: #1b5bbf;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #303F9F;
+  transform: translateY(-1px);
 }
 
-@media (min-width: 768px) {
-  .site-header {
-      flex-direction: row;
-      justify-content: space-between;
-  }
+/* Hamburger Menu (mobile) */
+.hamburger {
+  display: none; 
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+}
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #3F51B5;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+@media (max-width: 767px) {
   .site-nav {
-      flex-direction: row;
-      width: auto;
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 70px; 
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+  .site-nav a {
+    background-color: transparent;
+    color: #3F51B5;
+    border-radius: 0;
+    margin-bottom: 0.5rem;
+    padding: 8px 0;
+  }
+  .site-nav a:hover {
+    background-color: transparent;
+    color: #303F9F;
+    transform: none; 
+  }
+
+  .hamburger {
+    display: flex;
+  }
+  /* Hamburger animation */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  /* Show nav when open */
+  .site-nav.open {
+    display: flex; 
   }
 }
 
-/* === HERO SECTION === */
+/* ====================================== */
+/*               6. HERO BANNER           */
+/* ====================================== */
 .hero-banner {
-  background: linear-gradient(to bottom, rgba(42, 122, 226, 0.9), rgba(42, 122, 226, 0.7)),
-              url('/assets/images/hero-bg.webp') center/cover no-repeat;
-  padding: 100px 30px;
+  position: relative;
+  background: linear-gradient(
+              rgba(0, 0, 0, 0.3),
+              rgba(0, 0, 0, 0.3)
+            ),
+            url('/assets/images/hero-bg.webp') center/cover no-repeat;
+  padding: 120px 0;
   text-align: center;
   color: #fff;
+  margin-bottom: 2rem;
+}
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.hero-banner h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+.hero-banner p {
+  font-size: clamp(1.1rem, 3vw, 1.25rem);
+  margin-bottom: 2rem;
+}
+/* Hero Button */
+.hero-btn {
+  background-color: #FF5722; /* Secondary accent color (orange) */
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.hero-btn:hover {
+  background-color: #E64A19;
+  transform: translateY(-2px);
 }
 
-.hero-banner h1, .hero-banner p {
-  animation: fadeIn 0.8s ease-in-out;
+/* If you still use .hero-section + .hero-image somewhere else: */
+.hero-section {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-section img.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ====================================== */
+/*             7. MAIN CONTENT            */
+/* ====================================== */
+.page-content {
+  flex: 1;
+  padding: 3rem 0; /* More vertical spacing */
+}
+.question-content {
+  margin-bottom: 2rem;
+}
+.disclaimer-section,
+.content-section {
+  margin: 2rem 0;
 }
 
-@media (max-width: 768px) {
-  .hero-banner {
-      padding: 60px 15px;
+/* 7a. Example fade-in classes (used with Intersection Observer) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 7b. Example slide-in classes, if you want variety */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ====================================== */
+/*          8. GRID / LIST STYLES         */
+/* ====================================== */
+/* Featured items or "sample questions" */
+.featured-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.featured-item {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.featured-item:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+@media (min-width: 768px) {
+  .featured-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .featured-grid {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-/* === BUTTONS === */
-.hero-btn {
-  display: inline-block;
-  background-color: #2a7ae2;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 5px;
-  margin: 10px;
-  transition: background-color 0.3s ease, transform 0.3s;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.hero-btn:hover {
-  background-color: #1b5bbf;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* === PAGE CONTENT === */
-.page-content {
-  padding: 30px;
-  flex: 1;
-}
-
-/* === QUESTIONS LIST === */
+/* #questions-list for dynamic question links */
 #questions-list {
   list-style: none;
   padding: 0;
   display: grid;
-  gap: 15px;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
-
 #questions-list li a {
   display: block;
-  padding: 15px;
+  padding: 1rem;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  transition: background-color 0.3s, box-shadow 0.2s, transform 0.2s;
 }
-
 #questions-list li a:hover {
-  background-color: #e9e9e9;
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
 }
-
 @media (min-width: 600px) {
   #questions-list {
-      grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
-
 @media (min-width: 900px) {
   #questions-list {
-      grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-/* === IMAGES & GLOBAL ELEMENTS === */
-img, .hero-btn, #questions-list li a {
-  border-radius: 10px;
-}
-
-/* === FOOTER === */
+/* ====================================== */
+/*               9. FOOTER                */
+/* ====================================== */
 .site-footer {
-  border-top: 1px solid #e8e8e8;
-  padding: 40px 0;
+  background-color: #fff;
+  color: #777;
+  font-size: 0.9rem;
   text-align: center;
-  background-color: #f1f1f1;
-  color: #555;
-  font-size: 16px;
+  border-top: 1px solid #eee;
+  padding: 2rem 0;
+  margin-top: auto;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.03);
 }
-
 .site-footer a {
-  color: #2a7ae2;
-  font-weight: 500;
-  margin: 0 10px;
+  color: #3F51B5;
+  margin: 0 0.5rem;
+  transition: color 0.2s;
+}
+.site-footer a:hover {
+  color: #303F9F;
 }
 
-.site-footer a:hover {
-  text-decoration: underline;
-  color: #1b5bbf;
+/* Optional multi-column footer */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+.footer-grid h4 {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+
+/* ====================================== */
+/*        10. DARK MODE EXAMPLE           */
+/* ====================================== */
+/* Provide a .dark-mode class that inverts colors:
+   (If you want a toggle, see JS snippet.)
+*/
+.dark-mode body {
+  background-color: #121212;
+  color: #EEE;
+}
+.dark-mode .site-header {
+  background-color: #1E1E1E;
+}
+.dark-mode .nav-container .logo a {
+  color: #BB86FC;
+}
+.dark-mode .site-nav a {
+  background-color: #BB86FC;
+}
+.dark-mode .site-nav a:hover {
+  background-color: #9B69D2;
+}
+.dark-mode .hero-banner {
+  background: linear-gradient(
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.5)
+            ),
+            url('/assets/images/hero-bg.webp') center/cover no-repeat;
+}
+.dark-mode .hero-btn {
+  background-color: #03DAC5;
+}
+.dark-mode .hero-btn:hover {
+  background-color: #029C8E;
+}
+.dark-mode .featured-item,
+.dark-mode #questions-list li a {
+  background-color: #1E1E1E;
+  border-color: #333;
+}
+.dark-mode .site-footer {
+  background-color: #1E1E1E;
+  color: #888;
 }
