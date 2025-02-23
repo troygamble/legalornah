@@ -529,4 +529,36 @@ a:hover {
     vertical-align: middle;
     margin-right: 10px;
   }
-  
+
+
+.about-section, .contact-section {
+  padding: 2rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-section input, .contact-section textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.contact-section button {
+  padding: 0.8rem;
+  background-color: #FF5722;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-section button:hover {
+  background-color: #E64A19;
+}
