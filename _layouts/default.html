@@ -5,19 +5,34 @@
     <title>{{ page.title }} - Legal or Nah?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/css/main.css">
-    {%- include head.html -%} <!-- Additional head content -->
+    {%- include head.html -%}
 </head>
 
 <body>
     <!-- Navigation for all sub-pages -->
     {%- include nav.html -%}
-    {%- include adsense.html -%}  <!-- Google AdSense snippet added here -->
+    {%- include adsense.html -%} <!-- Google AdSense snippet added here -->
 
     <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            {{ content }}
-            <!-- ✅ Affiliate snippet for sub-pages -->
-            {%- include affiliate.html -%}
+            <div class="question-content">
+              <h1>{{ page.title }}</h1>
+              <div class="short-answer">
+                <strong>Quick Answer:</strong> {{ page.answer }}
+              </div>
+              <div class="explanation">
+                {{ content }}
+              </div>
+
+              <!-- ✅ Single inclusion of affiliate snippet for sub-pages -->
+              <section class="affiliate-section">
+                {% include affiliate.html %}
+              </section>
+
+              <!-- Disclaimer at the bottom -->
+              <hr/>
+              <p><em>This is not legal advice. Laws may vary by region.</em></p>
+            </div>
         </div>
     </main>
 
