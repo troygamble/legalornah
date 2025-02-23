@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Guide: Gradual Deployment for SEO</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; padding-bottom: 50px; }
+        h1, h2, h3 { color: #333; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 5px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .tip { background-color: #e7f3fe; border-left: 5px solid #2196F3; padding: 10px; margin-bottom: 20px; }
+        .important { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 10px; margin-bottom: 20px; }
+        .command { background-color: #f0f0f0; border-radius: 5px; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Beginner-Friendly Guide: Gradual Deployment of 3,000 Pages for SEO</h1>
+    <p>This guide explains how to deploy a large number of pages gradually, automate deployment, ensure SEO optimization, and use tools like Netlify and Google Search Console.</p>
+
+    <h2>📚 1. What is a Git Branch?</h2>
+    <p>A <strong>branch</strong> in Git lets you work on different versions of your site without affecting the live version. We will use a branch named <code>staged-deploy</code> to upload pages in batches.</p>
+
+    <div class="tip">
+        ⚡ <strong>Why branches matter:</strong> Netlify can be configured to deploy from a branch you choose, allowing gradual uploads.
+    </div>
+
+    <h2>⚡ 2. Splitting Pages into Batches (200/day)</h2>
+    <p>We will split the 3,000 markdown files into batches of 200 each.</p>
+    <pre><code>mkdir _questions_batches
+mkdir _questions_batches/batch{1..15}  # Adjust based on actual batches
+
+cd _questions
+ls | split -l 200 - ../_questions_batches/batch_
+cd ..</code></pre>
+
+    <h2>🚀 3. Setting Up Deployment Branch</h2>
+    <p>Create a branch that Netlify will deploy from:</p>
+    <pre><code>git checkout -b staged-deploy</code></pre>
+
+    <h2>🌱 4. Configuring Netlify for Controlled Deployments</h2>
+    <p>On <strong>Netlify Dashboard</strong>:</p>
+    <ol>
+        <li>Go to <strong>Site Settings</strong> &gt; <strong>Build & Deploy</strong> &gt; <strong>Continuous Deployment</strong>.</li>
+        <li>Change the <strong>branch to deploy</strong> from <code>main</code> to <code>staged-deploy</code>.</li>
+    </ol>
+
+    <h2>🔄 5. Automating Daily Deployments (GitHub Actions)</h2>
+    <p>Create a GitHub Action for automated daily deployment:</p>
+    <pre><code>mkdir -p .github/workflows
+nano .github/workflows/scheduled-deploy.yml</code></pre>
+
+    <p>Add this content:</p>
+    <pre><code>name: Scheduled Deploy
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Every day at midnight
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3
+    - name: Install dependencies
+      run: bundle install
+    - name: Jekyll Build
+      run: bundle exec jekyll build
+    - name: Commit and push
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add .
+        git commit -m "Automated daily deploy $(date)"
+        git push origin staged-deploy</code></pre>
+
+    <h2>🌐 6. Internal Linking for SEO</h2>
+    <p>Add related questions at the bottom of each question page to improve SEO:</p>
+    <pre><code>&lt;h3&gt;Related Questions&lt;/h3&gt;
+&lt;ul&gt;
+  {% assign related = site.questions | where: "category", page.category | sample: 3 %}
+  {% for question in related %}
+    &lt;li&gt;&lt;a href="{{ question.url }}"&gt;{{ question.title }}&lt;/a&gt;&lt;/li&gt;
+  {% endfor %}
+&lt;/ul&gt;</code></pre>
+
+    <h2>🏃 7. Google Search Console Setup</h2>
+    <p>Submit your sitemap after each batch:</p>
+    <ol>
+        <li>Go to <a href="https://search.google.com/search-console/" target="_blank">Google Search Console</a>.</li>
+        <li>Select your site &gt; <strong>Sitemaps</strong>.</li>
+        <li>Add: <code>https://www.legalornah.com/sitemap.xml</code>.</li>
+    </ol>
+
+    <h2>🎯 8. Final Cleanup Steps</h2>
+    <p>After all batches are deployed:</p>
+    <pre><code>git checkout main
+git merge staged-deploy
+git push origin main</code></pre>
+
+    <p>Congratulations! Your site is now live with SEO-friendly gradual deployment. 🚀✨</p>
+</body>
+</html>

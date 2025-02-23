@@ -13,6 +13,17 @@ layout: default
     {{ content }}
   </div>
 
+  <!-- ✅ Related Questions Section for SEO & UX -->
+  <h3>Related Questions</h3>
+  <ul>
+    {% assign related = site.questions | where: "category", page.category | sample: 3 %}
+    {% for question in related %}
+      {% if question.url != page.url %}
+        <li><a href="{{ question.url }}">{{ question.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
   <!-- ✅ FAQ Schema Markup for SEO -->
   <script type="application/ld+json">
   {
