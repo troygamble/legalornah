@@ -429,30 +429,36 @@ a:hover {
   font-size: 1.2rem;
 }
 
-<!-- Additional CSS for Updated Sections -->
-<style>
+
   .fun-facts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px; /* Added spacing between items */
+    row-gap: 10px; /* Additional row gap */
+    max-width: 900px; /* Reduced width for center alignment */
+    margin: 0 auto 2rem auto; /* Added bottom margin for spacing before FAQ */
+}
+
   .fun-fact-item {
     background: #fff;
-    padding: 1rem;
+    padding: 0.8rem; /* Reduced padding */
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Thinner box shadow */
     transition: transform 0.3s;
-  }
+    max-width: 300px; /* Controlled width for narrower cards */
+    margin: 0 auto;
+}
+
   .fun-fact-item:hover {
     transform: translateY(-5px);
-  }
+}
+
   .fun-fact-item i {
     font-size: 2rem;
     margin-bottom: 10px;
     color: #3F51B5;
-  }
+}
   .faq-accordion .faq-item {
     background: #fff;
     border-radius: 8px;
@@ -478,7 +484,7 @@ a:hover {
 
   .logo {
     height: 50px;
-    width: 200px;
+    width: 170px;
     background-color: #122a3c;
     display: flex;
     align-items: center;
@@ -489,10 +495,14 @@ a:hover {
 
   @media (max-width: 767px) {
     .logo-text {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
     .logo {
-      width: 120px;
-      height: 35px;
+      width: 140px;
+      height: 45px;
     }
+  }
+
+  .cta-section {
+    margin-top: 2rem; /* Added spacing to prevent overlap */
   }
