@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const randomButton = document.querySelector(".random-question-btn");
+    const questionsList = document.getElementById("questions-list");
 
     async function getRandomQuestion() {
         try {
@@ -24,5 +25,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (randomButton) {
         randomButton.addEventListener("click", getRandomQuestion);
+    }
+
+    // ✅ Populate the "Browse All Questions" list dynamically
+    if (questionsList) {
+        fetch("/sitemap.xml")
+            .then((response) => response.text())
+            .then((data) => {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, "text/xml");
+                const urls = xml.getElementsByTagName("loc");
+
+                for (let i = 0; i < urls.length; i++) {
+                    const url = urls[i].textContent;
+                    if (url.includes("/questions/") && url !== window.location.href) {
+                        const title = decodeURIComponent(
+                            url.split("/").filter(Boolean).pop().replace(/-/g, " ")
+                        );
+                        const li = document.createElement("li");
+                        li.innerHTML = `<a href="${url}">${title}</a>`;
+                        questionsList.appendChild(li);
+                    }
+                }
+            })
+            .catch((error) => console.error("Error loading sitemap:", error));
     }
 });
