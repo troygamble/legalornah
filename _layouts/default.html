@@ -1,33 +1,27 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} - Legal or Nah?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    {%- include head.html -%} <!-- Additional head content -->
+</head>
 
-  {%- include head.html -%}
-
-  <body>
-
+<body>
+    <!-- Navigation for all sub-pages -->
+    {%- include nav.html -%}
     {%- include adsense.html -%}  <!-- Google AdSense snippet added here -->
 
-    <!-- ✅ Re-adding navigation directly here -->
-    <header class="site-header">
-      <div class="wrapper">
-        <a href="/" class="site-title">Is It Legal?</a>
-        <nav class="site-nav">
-          <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
-          <a href="javascript:void(0);" onclick="location.href=getRandomQuestion();" class="btn hero-btn">Random Question</a>
-        </nav>
-      </div>
-    </header>
-
     <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-
-      {%- include affiliate.html -%} <!-- ✅ Affiliate snippet under content -->
+        <div class="wrapper">
+            {{ content }}
+            <!-- ✅ Affiliate snippet for sub-pages -->
+            {%- include affiliate.html -%}
+        </div>
     </main>
 
-    {%- include footer.html -%}  <!-- New footer section -->
-
-  </body>
-
+    <!-- Footer section -->
+    {%- include footer.html -%}
+</body>
 </html>
