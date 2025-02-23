@@ -7,10 +7,9 @@ affiliate_title: "Weird Laws: The Funniest Legal Curiosities"
 affiliate_text: "Check out this awesome book about bizarre legal cases:"
 ---
 
-<!-- Hero Banner Section -->
 <div class="hero-banner">
-  <h1 style="font-size: 48px; margin-bottom: 20px;">Welcome to Is It Legal?</h1>
-  <p style="font-size: 20px; margin-bottom: 30px;">Where bizarre legal questions get surprising answers!</p>
+  <h1>Welcome to Is It Legal?</h1>
+  <p>Where bizarre legal questions get surprising answers!</p>
   <div class="hero-buttons">
     <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
     <a href="javascript:void(0);" onclick="location.href=getRandomQuestion();" class="btn hero-btn">Random Question</a>
