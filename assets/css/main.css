@@ -387,3 +387,21 @@ a:hover {
   background-color: #1E1E1E;
   color: #888;
 }
+
+.topics-list {
+  list-style: none;
+  padding: 0;
+}
+
+.topics-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.topics-list i {
+  color: #555;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
