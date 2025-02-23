@@ -19,20 +19,16 @@ defaults:
 markdown: kramdown
 permalink: /:title/
 
-# Plugins
+# ✅ Combined Plugins Section
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-json-feed
 
+# ✅ Combined Collections Section
 collections:
   questions:
     output: true
     permalink: /questions/:title/
-
-plugins:
-  - jekyll-json-feed
-
-# Generate search index
-collections:
   search:
     output: true
