@@ -563,154 +563,133 @@ a:hover {
   background-color: #E64A19;
 }
 /****************************************************/
-/*          🔥 AWESOME NAVIGATION OVERHAUL           */
+/*          🌟 BEAUTIFIED NAVIGATION BAR             */
 /****************************************************/
 
-/* 1. HEADER & NAV CONTAINER */
+/* 1. HEADER WRAPPER */
 .site-header {
-  /* A subtle gradient for a modern, classy feel */
-  background: linear-gradient(135deg, #122a3c 0%, #1b4160 100%);
+  background-color: #122a3c; 
+  /* Could also do a subtle gradient if you prefer:
+     background: linear-gradient(135deg, #122a3c 0%, #1b4160 100%);
+  */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
-  /* Keep the header sticky if desired */
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
   padding: 0.75rem 0;
 }
 
-/* Ensures the nav items are well spaced horizontally */
+/* 2. MAIN NAV CONTAINER */
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
 }
 
-/* 2. LOGO & BRANDING */
+/* 3. LOGO */
 .logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: transparent; /* Let the gradient show behind it */
-  padding: 0 10px;
-  border-radius: 5px;
+  padding: 0 0.5rem;
 }
-
-/* We already have .logo-text with Blenda Script.
-   Tweak size, color, and shadow to stand out on the gradient. */
 .logo-text {
-  font-family: 'Blenda Script', cursive;
+  font-family: 'Blenda Script', cursive; 
   font-size: 1.8rem;
   color: #ead9bb;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-  letter-spacing: 0.5px;
-  white-space: nowrap;
 }
 
-/* 3. NAV LINKS (Desktop) */
+/* 4. NAVIGATION LINKS (DESKTOP) */
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.25rem; /* More spacing between items */
+  gap: 1rem;
 }
 
-/* If you want a uniform pill-shaped button style for each link */
+/* 
+  Use .nav-link for main nav items. 
+  We'll make them simpler text with a hover background 
+  that ties into the accent color (#FF5722).
+*/
 .nav-link {
   display: inline-block;
   padding: 0.5rem 1.25rem;
-  border-radius: 25px;
-  background-color: transparent; /* No background by default */
-  color: #ffffff; 
+  border-radius: 20px;
+  background-color: transparent;
+  color: #ead9bb;
   font-weight: 500;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover/Focus effects for .nav-link */
 .nav-link:hover,
 .nav-link:focus {
-  background-color: rgba(255, 255, 255, 0.15);
-  /* Slight translucent hover, or you could do a border:
-     border-color: #fff; */
+  background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
 
-/* If you want a big orange CTA style for certain nav links,
-   keep .hero-btn or create a new class. Example: */
-.hero-btn {
-  background-color: #FF5722; 
+/* If you prefer fully accent-colored buttons:
+.nav-link {
+  background-color: #FF5722;
   color: #fff;
-  padding: 0.6rem 1.5rem;
-  font-weight: 600;
-  border-radius: 25px;
-  transition: background-color 0.3s, transform 0.2s;
 }
-.hero-btn:hover {
+.nav-link:hover {
   background-color: #E64A19;
-  transform: translateY(-2px);
 }
+*/
 
-/* 4. SEARCH BAR IN NAV */
+/* 5. SEARCH BAR */
 .nav-search {
   display: flex;
   align-items: center;
 }
 
-.nav-search .search-form {
+/* The search-form is inline. Make input a small pill. */
+.search-form {
   display: flex;
   align-items: center;
 }
 
-/* Style the input as a pill shape */
-.nav-search .search-form input[type="text"] {
-  border: none;
-  border-radius: 20px;
-  padding: 0.5rem 1rem;
-  outline: none;
+.search-form input[type="text"] {
   width: 200px;
-  transition: box-shadow 0.3s ease;
-}
-
-/* Focus glow */
-.nav-search .search-form input[type="text"]:focus {
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff; /* If you want white text in the search bar */
-}
-
-/* Search button in nav */
-.nav-search .search-form button {
-  margin-left: 0.5rem;
-  background-color: #FF5722;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  padding: 0.4rem 0.75rem;
   border: none;
-  font-weight: 600;
+  border-radius: 20px;
+  outline: none;
+  background-color: #fff;
+  margin-right: 0.5rem;
+
+  /* Optional: smaller text, or color to match background if you want. */
+  font-size: 0.95rem;
+}
+
+/* Search button is an icon. We can style it as a small pill too */
+.search-form button {
+  background: #FF5722; 
+  border: none;
+  color: #fff;
+  font-size: 1rem; 
+  padding: 0.4rem 0.7rem;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.nav-search .search-form button:hover {
+.search-form button:hover {
   background-color: #E64A19;
 }
 
-/* 5. DARK MODE TOGGLE IN NAV */
-.dark-mode-toggle {
-  background-color: #FF5722;
-  color: #fff;
-  padding: 0.5rem 1.25rem;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: all 0.3s ease;
+/* 6. DARK MODE TOGGLE BTN */
+.dark-toggle-btn {
+  background-color: #3f4a58; /* A subtle shade for distinction */
+  color: #ead9bb;
+  padding: 0.5rem 1rem;
 }
-.dark-mode-toggle:hover {
-  background-color: #E64A19;
-  transform: translateY(-2px);
+.dark-toggle-btn:hover {
+  background-color: #4e5967;
 }
 
-/* 6. HAMBURGER MENU (for mobile) */
+/* 7. HAMBURGER MENU (MOBILE) */
 .hamburger {
   display: none; 
   flex-direction: column;
@@ -722,12 +701,10 @@ a:hover {
 .hamburger .bar {
   width: 100%;
   height: 3px;
-  background-color: #ffffff;
+  background-color: #ead9bb;
   border-radius: 2px;
   transition: 0.3s;
 }
-
-/* Hamburger active state (turns into "X") */
 .hamburger.active .bar:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -738,26 +715,20 @@ a:hover {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* 7. MEDIA QUERY FOR MOBILE */
+/* 8. RESPONSIVE MOBILE NAV */
 @media (max-width: 768px) {
-  .nav-container {
-    flex-direction: row;
-  }
-
-  /* Hide the standard nav menu */
   .site-nav {
-    display: none;
-    flex-direction: column;
-    background-color: #1b4160;
+    display: none; 
     position: absolute;
-    top: 70px;
-    right: 15px;
+    top: 60px;
+    right: 10px;
+    flex-direction: column;
+    background-color: #122a3c;
     padding: 1rem;
     border-radius: 5px;
     gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
-
-  /* Show nav when .open is added */
   .site-nav.open {
     display: flex;
   }
@@ -766,20 +737,8 @@ a:hover {
     display: flex;
   }
   
-  /* Nav links in mobile view */
-  .nav-link {
-    background-color: transparent;
-    text-align: center;
-    width: 100%;
-    border-radius: 5px;
-  }
-  .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: none; /* Usually small screens don't need a big shift */
-  }
-
-  /* Make search input full width in mobile nav */
-  .nav-search .search-form input[type="text"] {
+  /* Full-width inputs on small screens */
+  .search-form input[type="text"] {
     width: 100%;
   }
 }

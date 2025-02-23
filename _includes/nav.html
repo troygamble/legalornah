@@ -4,7 +4,7 @@
 
 <header class="site-header">
   <div class="wrapper nav-container">
-    
+
     <!-- LOGO -->
     <div class="logo">
       <a href="/">
@@ -14,28 +14,29 @@
 
     <!-- NAVIGATION -->
     <nav class="site-nav" id="site-nav">
-      <!-- Keep "btn hero-btn" if you want the big orange CTA style specifically 
-           but ideally use something like .nav-link if you want a uniform look. -->
       <a href="/questions/" class="nav-link">Browse All Questions</a>
       <a href="javascript:void(0);" class="nav-link random-question-btn">Random Question</a>
 
-      <!-- Search -->
-      {% if page.url == "/" %}
-      <div class="homepage-search">
-        {% include searchsite.html %}
-      </div>
-      {% else %}
+      <!-- SEARCH (inline, no big heading) -->
       <div class="nav-search">
-        {% include searchsite.html %}
+        <form action="/search/" method="get" class="search-form">
+          <input 
+            type="text" 
+            name="query" 
+            placeholder="Search LegalOrNah..." 
+            required 
+          />
+          <button type="submit" aria-label="Search">🔍</button>
+        </form>
       </div>
-      {% endif %}
 
-      <button id="darkModeToggle" class="nav-link dark-mode-toggle">
-        Toggle Dark Mode
+      <button id="darkModeToggle" class="nav-link dark-toggle-btn">
+        Dark Mode
       </button>
     </nav>
 
-    <!-- If you want a hamburger menu for mobile, place it here:
+    <!-- Optional Hamburger Icon for mobile -->
+    <!--
     <div class="hamburger" id="hamburger">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -44,4 +45,5 @@
     -->
   </div>
 </header>
+
 
