@@ -1,13 +1,14 @@
-<!-- Dynamic Amazon Affiliate Product Ad -->
-{% assign product = site.data.products[page.category] %}
+{% assign product = site.data.products[page.category] | default: site.data.products['funny-legal-books'] %}
 {% if product %}
 <div class="affiliate-product">
-  <div class="affiliate-product">
-    <p>Check out this related product:</p>
-    <a target="_blank" href="https://www.amazon.com.{{ product.region }}/dp/{{ product.asin }}?tag=troyamazon-22">
-      <img src="{{ product.image }}" alt="{{ product.title }}">
-    </a>
-    <h3>{{ product.title }}</h3>
-    <p>{{ product.description }}</p>
-  </div>  
+  <p>Check out this related product:</p>
+  <a target="_blank" href="https://www.amazon.com.{{ product.region }}/dp/{{ product.asin }}?tag=troyamazon-22">
+    <img src="{{ product.image }}" alt="{{ product.title }}">
+  </a>
+  <h3>{{ product.title }}</h3>
+  <p>{{ product.description }}</p>
+</div>
 {% endif %}
+<!-- DEBUG: Category passed to affiliate.html -->
+<p>Page category: {{ page.category }}</p>
+

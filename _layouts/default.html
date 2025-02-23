@@ -7,12 +7,23 @@
 
     {%- include adsense.html -%}  <!-- Google AdSense snippet added here -->
 
+    <!-- ✅ Re-adding navigation directly here -->
+    <header class="site-header">
+      <div class="wrapper">
+        <a href="/" class="site-title">Is It Legal?</a>
+        <nav class="site-nav">
+          <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
+          <a href="javascript:void(0);" onclick="location.href=getRandomQuestion();" class="btn hero-btn">Random Question</a>
+        </nav>
+      </div>
+    </header>
+
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>
 
-      {%- include affiliate.html -%} <!-- Amazon Affiliate snippet under content -->
+      {%- include affiliate.html -%} <!-- ✅ Affiliate snippet under content -->
     </main>
 
     {%- include footer.html -%}  <!-- New footer section -->
