@@ -174,10 +174,33 @@ a:hover {
   margin: 0 auto;
   padding: 0 1rem;
 }
+
 .hero-banner h1 {
   font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #FF5722, #FF9800, #FFC107);
+  background-clip: text;                /* Standard property */
+  -webkit-background-clip: text;        /* For Safari & Chrome */
+  -moz-background-clip: text;           /* (Rare) Firefox older versions */
+  -o-background-clip: text;             /* (Rare) Opera older versions */
+  -ms-background-clip: text;            /* (Rare) Internet Explorer */
+  -webkit-text-fill-color: transparent; /* For Safari & Chrome to make text transparent */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
 }
+
+.hero-banner h1:hover {
+  transform: translateY(-3px);
+}
+
+.hero-banner h1 {
+  color: #FF5722; /* Fallback solid color */
+  background: linear-gradient(90deg, #FF5722, #FF9800, #FFC107);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
 .hero-banner p {
   font-size: clamp(1.1rem, 3vw, 1.25rem);
   margin-bottom: 2rem;

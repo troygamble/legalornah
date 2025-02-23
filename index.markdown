@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Legal or Nah?
+title: LegalOrNah.com
 description: "A fun Q&A site answering weird and interesting 'Is it legal...?' questions. Explore bizarre laws, obscure legal loopholes, and surprising state regulations."
 affiliate_asin: B08XYZ1234  # Replace with the actual product ASIN
 affiliate_title: "Weird Laws: The Funniest Legal Curiosities"
@@ -10,7 +10,7 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
 <!-- ✅ Restored Hero Banner (Navigation buttons removed to avoid duplication) -->
 <div class="hero-banner">
   <div class="hero-content">
-    <h1>Welcome to Legal or Nah?</h1>
+    <h1>Legal Or Nah?</h1>
     <p>Your go-to source for answers to the weirdest legal questions out there!</p>
     <a href="/questions/" class="hero-btn">Browse Questions</a>
   </div>
