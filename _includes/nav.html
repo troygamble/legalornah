@@ -1,23 +1,22 @@
-<!-- Updated Header with Blenda Script Font and Custom Colors (Logo Styled as Image) -->
-
+<!-- ✅ Updated Header with Blenda Script Font and Custom Colors -->
 <!-- Import Blenda Script Font -->
 <link href="https://fonts.googleapis.com/css2?family=Blenda+Script&display=swap" rel="stylesheet">
 
-<header class="site-header" style="background-color: #122a3c; height: 70px; display: flex; align-items: center;">
+<header class="site-header">
   <div class="wrapper nav-container">
-    <!-- LOGO AREA -->
-    <div class="logo" style="height: 40px; width: 150px; background-color: #122a3c; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
-      <a href="/" style="text-decoration: none; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+    <!-- 🔥 LOGO AREA -->
+    <div class="logo">
+      <a href="/">
         <span class="logo-text">Legal Or Nah</span>
       </a>
     </div>
 
-    <!-- NAVIGATION BAR -->
+    <!-- 🚀 NAVIGATION BAR -->
     <nav class="site-nav" id="site-nav">
       <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
       <a href="javascript:void(0);" class="btn hero-btn random-question-btn">Random Question</a>
 
-      <!-- ✅ Conditional Search Bar Rendering -->
+      <!-- 🔎 Conditional Search Bar Placement -->
       {% if page.url == "/" %}
         <div class="homepage-search">
           {% include searchsite.html %}
@@ -28,7 +27,7 @@
         </div>
       {% endif %}
 
-      <button id="darkModeToggle" class="btn hero-btn" style="margin-left: 1rem;">
+      <button id="darkModeToggle" class="btn hero-btn">
         Toggle Dark Mode
       </button>
     </nav>

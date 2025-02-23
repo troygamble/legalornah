@@ -562,78 +562,106 @@ a:hover {
 .contact-section button:hover {
   background-color: #E64A19;
 }
+/* ============================ */
+/*      💎 NAVBAR REFINEMENT    */
+/* ============================ */
+
+/* Nav Container with more padding and spacing */
+.site-header {
+  background-color: #122a3c;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Logo improvements */
+.logo a {
+  font-family: 'Blenda Script', cursive;
+  font-size: 2rem;
+  color: #ead9bb;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 🔥 Nav buttons uniform design */
+.site-nav a,
+nav .search-form button,
+#darkModeToggle {
+  background-color: #FF5722;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.site-nav a:hover,
+nav .search-form button:hover,
+#darkModeToggle:hover {
+  background-color: #E64A19;
+  transform: translateY(-2px);
+}
 
 /* ============================ */
-/*      NAVBAR SEARCH FIXES     */
+/*     🔎 SEARCH BAR STYLING    */
 /* ============================ */
 
-/* Wrapper around search to ensure spacing & alignment */
+/* Wrapper for search bar in navbar */
 nav .nav-search {
   display: flex;
   align-items: center;
-  margin-left: 20px;
-  gap: 10px; /* spacing between search icon and input */
+  gap: 10px;
 }
 
-/* Search bar input box - Google-style rounded input */
 nav .search-form input[type="text"] {
   width: 250px;
-  height: 38px;
+  height: 40px;
   padding: 0 15px;
-  border-radius: 20px 0 0 20px;
+  border-radius: 50px;
   border: 1px solid #ddd;
   outline: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s;
   font-size: 1rem;
-  color: #333;
 }
 
 nav .search-form input[type="text"]:focus {
   border-color: #FF5722;
-  box-shadow: 0 0 10px rgba(255, 87, 34, 0.3);
+  box-shadow: 0 0 8px rgba(255, 87, 34, 0.3);
 }
 
-/* Search button with rounded edges, matching theme */
 nav .search-form button {
-  height: 38px;
-  border-radius: 0 20px 20px 0;
+  height: 40px;
+  border-radius: 50px;
   padding: 0 20px;
-  border: none;
   background-color: #FF5722;
   color: white;
   font-weight: 600;
   transition: background-color 0.3s ease;
 }
 
-nav .search-form button:hover {
-  background-color: #E64A19;
-}
-
-/* Align search icon and title nicely */
-.search-heading {
-  font-size: 1.2rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  color: #fff;
-}
-
-.search-heading .material-icons {
-  font-size: 1.5rem;
-  margin-right: 8px;
-  color: #fff;
-}
-
-/* Responsive Fixes */
+/* Responsive adjustments for mobile view */
 @media (max-width: 768px) {
-  nav .nav-search {
+  .nav-container {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-    margin-top: 10px;
+    align-items: center;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    gap: 15px;
   }
 
   nav .search-form input[type="text"] {
-    width: 200px;
+    width: 100%;
   }
 }
