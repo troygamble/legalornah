@@ -13,6 +13,16 @@
     {%- include nav.html -%}
     {%- include adsense.html -%} <!-- Google AdSense snippet added here -->
 
+    <!-- ✅ Navbar Search -->
+    <nav class="site-nav" id="site-nav">
+      <a href="/questions/" class="btn hero-btn">Browse All Questions</a>
+      <a href="javascript:void(0);" class="btn hero-btn random-question-btn">Random Question</a>
+      {% include searchsite.html %}
+      <button id="darkModeToggle" class="btn hero-btn" style="margin-left: 1rem;">
+      Toggle Dark Mode
+  </button>
+</nav>
+
     <main class="page-content" aria-label="Content">
         <div class="wrapper">
             <div class="question-content">
@@ -28,6 +38,7 @@
               <section class="affiliate-section">
                 {% include affiliate.html %}
               </section>
+            
 
               <!-- Disclaimer at the bottom -->
               <hr/>
