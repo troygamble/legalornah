@@ -97,3 +97,4 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
     return questions[Math.floor(Math.random() * questions.length)];
   }
 </script>
+
