@@ -1,13 +1,40 @@
 <head>
-        <meta charset="UTF-8">
-        <title>{{ page.title }} - {{ site.title }}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-        <!-- Link to main.css for styling -->
-        <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <!-- ✅ Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Is It Legal? Discover surprising answers to bizarre legal questions from around the world.">
+    <meta name="keywords" content="legal questions, law, legality, bizarre laws, random legal facts">
+    <meta name="author" content="Legal or Nah?">
 
-    
-        <!-- Include any additional head content like styles or SEO tags -->
-        {{ site.head }}
-    </head>
-    
+    <!-- ✅ Dynamic Page Title -->
+    <title>{{ page.title }} - Legal or Nah?</title>
+
+    <!-- ✅ Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- ✅ Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- ✅ Google Analytics (gtag.js) - Essential Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TR2T51LV74"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TR2T51LV74');
+    </script>
+
+    <!-- ✅ Social Sharing (Open Graph) -->
+    <meta property="og:title" content="{{ page.title }} - Legal or Nah?" />
+    <meta property="og:description" content="Explore unique legal questions and surprising answers from around the globe." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:image" content="{{ '/assets/images/hero-bg.webp' | absolute_url }}" />
+
+    <!-- ✅ Twitter Card for Sharing -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }} - Legal or Nah?">
+    <meta name="twitter:description" content="Explore unique legal questions and surprising answers from around the globe.">
+    <meta name="twitter:image" content="{{ '/assets/images/hero-bg.webp' | absolute_url }}">
+</head>
