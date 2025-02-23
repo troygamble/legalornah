@@ -5,12 +5,18 @@
 
   <body>
 
-    {%- include adsense.html -%}  <!-- AdSense snippet added here -->
+    {%- include adsense.html -%}  <!-- Google AdSense snippet added here -->
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>
+
+      {%- include affiliate.html -%} <!-- Amazon Affiliate snippet under content -->
     </main>
+
+    {%- include footer.html -%}  <!-- New footer section -->
+
   </body>
+
 </html>
