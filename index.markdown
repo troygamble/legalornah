@@ -9,9 +9,12 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
 
 <!-- ✅ Restored Hero Banner (Navigation buttons removed to avoid duplication) -->
 <div class="hero-banner">
-  <h1>Welcome to Is It Legal?</h1>
-  <p>Where bizarre legal questions get surprising answers!</p>
+  <div class="hero-content">
+    <h1>Welcome to Is It Legal?</h1>
+    <p>Where bizarre legal questions get surprising answers!</p>
+  </div>
 </div>
+
 
 <!-- Main Content -->
 <section class="content-section">
