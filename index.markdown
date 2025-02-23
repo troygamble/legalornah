@@ -96,7 +96,8 @@ affiliate_text: "Check out this awesome book about bizarre legal cases:"
 </section>
 
 <!-- Font Awesome CDN -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pk1yAtXAdJwIzvu6vEWiKXhU7o2h5YQtJqEQ5Dfzz6fx3J4oHJYhY7ePeA6vHyBozI9T2V6J5VnoCZFKrcuO7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 <script>
   // Collect all question URLs from the site into an array with fallback
