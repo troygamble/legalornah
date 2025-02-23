@@ -1,6 +1,5 @@
 ---
 layout: default
-title: LegalOrNah.com
 description: "A fun Q&A site answering weird and interesting 'Is it legal...?' questions. Explore bizarre laws, obscure legal loopholes, and surprising state regulations."
 affiliate_asin: B08XYZ1234  # Replace with the actual product ASIN
 affiliate_title: "Weird Laws: The Funniest Legal Curiosities"
