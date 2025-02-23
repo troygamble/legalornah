@@ -1,0 +1,15 @@
+---
+permalink: /search.json
+layout: null
+---
+
+[
+  {% assign all_docs = site.pages | concat: site.questions %}
+  {% for doc in all_docs %}
+    {
+      "title": {{ doc.title | jsonify }},
+      "url": "{{ doc.url }}",
+      "content": {{ doc.content | strip_html | strip_newlines | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

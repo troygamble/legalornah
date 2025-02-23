@@ -32,3 +32,6 @@ collections:
     permalink: /questions/:title/
   search:
     output: true
+
+include:
+  - search.json.liquid

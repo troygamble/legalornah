@@ -16,7 +16,7 @@ description: "Search results for your query."
   const resultsList = document.getElementById("search-results-list");
 
   async function loadSearchIndex() {
-    const response = await fetch('/search.json.liquid'); // 👈 Ensure this is generated!
+    const response = await fetch('/search.json'); // 👈 Ensure this is generated!
     return response.json();
   }
 
