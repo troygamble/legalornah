@@ -1,6 +1,6 @@
 power-bank:
   title: "INIU Portable Charger, 20000mAh Power Bank"
   asin: "B07YPY31FL"
-  image: "https://m.media-amazon.com/images/I/61jR38ssOXL._AC_SX679_.jpg"  # Replace with the actual image URL if different
+  image: "/assets/images/power_bank.jpg"
   description: "Stay powered up on the go with this high-capacity portable charger—perfect for travelers, campers, and anyone who needs reliable power anytime, anywhere."
   region: "au"
