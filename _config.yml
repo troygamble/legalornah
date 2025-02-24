@@ -6,7 +6,7 @@ url: "https://legalornah.com"
 # 🚫 Removed the default Minima theme to stop unwanted CSS builds
 # theme: minima   <-- Removed this line
 
-# ✅ Correct CSS path specified globally
+# ✅ Correct CSS path specified globally & sitemap config combined
 defaults:
   - scope:
       path: ""
@@ -14,6 +14,12 @@ defaults:
     values:
       layout: default
       css: /assets/css/main.css
+      sitemap: true  # Ensures pages are included in sitemap
+
+  - scope:
+      path: "drafts"
+    values:
+      sitemap: false  # Excludes drafts from sitemap
 
 # Permalink and Markdown Settings
 markdown: kramdown
@@ -35,3 +41,9 @@ collections:
 
 include:
   - search.json.liquid
+
+exclude:
+  - batchdeploy_cheatsheet.html
+  - cheatsheet.html
+  - welcome-to-jekyll/
+

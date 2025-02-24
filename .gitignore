@@ -11,3 +11,7 @@ vendor
 *.backup2
 *.docx
 *.doc
+# Example - but this only stops Git from tracking
+batchdeploy_cheatsheet.html
+cheatsheet.html
+welcome-to-jekyll/

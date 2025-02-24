@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.legalornah.com/sitemap.xml
+Sitemap: https://legalornah.com/sitemap.xml

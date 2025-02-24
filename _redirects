@@ -1,1 +1,7 @@
+# Example Redirects (Ensure these are correct)
+# Old URLs redirecting to their new locations
+/questions/old-page-1/  /questions/new-page-1/  301
+/questions/old-page-2/  /questions/new-page-2/  301
+
+# Ensure wildcard rules do not interfere with normal page URLs
 /*  https://www.legalornah.com/:splat  301!

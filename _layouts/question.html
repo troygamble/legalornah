@@ -13,8 +13,8 @@ layout: default
     {{ content }}
   </div>
 
-  <!-- ✅ Related Questions Section for SEO & UX -->
-  <h3>Related Questions</h3>
+  <!-- 🔗 Related Questions (Automatic Internal Links) -->
+  <h3>Related Legal Questions</h3>
   <ul>
     {% assign related = site.questions | where: "category", page.category | sample: 3 %}
     {% for question in related %}
@@ -24,7 +24,7 @@ layout: default
     {% endfor %}
   </ul>
 
-  <!-- ✅ FAQ Schema Markup for SEO -->
+  <!-- ✅ FAQ Schema Markup for SEO (Cleaned up - Single instance) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
