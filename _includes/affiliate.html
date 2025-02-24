@@ -1,4 +1,4 @@
-{% assign product = site.data.products[page.category] | default: site.data.products['funny-legal-books'] %}
+{% assign product = site.data.products[page.category] | default: site.data.products['power-bank'] %}
 {% if product %}
 <div class="affiliate-product">
   <p>Planning your next trip or adventure? Don’t get caught with a dead battery. Check out this top-rated power bank — perfect for travelers, campers, and explorers alike!</p>
@@ -9,5 +9,3 @@
   <p>{{ product.description }}</p>
 </div>
 {% endif %}
-
-
