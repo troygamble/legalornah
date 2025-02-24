@@ -16,13 +16,18 @@
 
 {% assign product = site.data.products['power-bank'] %}
 {% if product %}
-<div class="affiliate-product">
-  <p>Planning your next trip or adventure? Don’t get caught with a dead battery. Check out this top-rated power bank — perfect for travelers, campers, and explorers alike!</p>
-  <a id="affiliate-link" target="_blank" href="{{ product.urls.default }}">
-    <img src="{{ product.image }}" alt="{{ product.title }}">
-  </a>
-  <h3>{{ product.title }}</h3>
-  <p>{{ product.description }}</p>
+<div class="affiliate-product-updated">
+  <div class="affiliate-product-image">
+    <a id="affiliate-link" target="_blank" href="{{ product.urls.default }}">
+      <img src="{{ product.image }}" alt="{{ product.title }}">
+    </a>
+  </div>
+  <div class="affiliate-product-details">
+    <p class="affiliate-intro">⚡ Planning your next trip or adventure? Don’t get caught with a dead battery.</p>
+    <h3>🔋 {{ product.title }}</h3>
+    <p>{{ product.description }}</p>
+    <a class="affiliate-btn" id="affiliate-link-btn" target="_blank" href="{{ product.urls.default }}">🔗 Shop Now on Amazon</a>
+  </div>
 </div>
 
 <script>
@@ -35,17 +40,19 @@
     default: "{{ product.urls.default }}"
   };
 
-  // 🌐 Detect user's region using `navigator.language` as a quick fallback
+  // 🌐 Detect user's region using `ipapi.co`
   async function setAffiliateLink() {
     try {
-      const response = await fetch('https://ipapi.co/json/'); // Uses ipapi.co (free for basic use)
+      const response = await fetch('https://ipapi.co/json/');
       const data = await response.json();
       const countryCode = data.country_code ? data.country_code.toLowerCase() : 'default';
 
       const regionMap = { us: 'us', au: 'au', ca: 'ca', gb: 'uk' };
       const region = regionMap[countryCode] || 'default';
 
+      // 🌟 Update both image and button links dynamically
       document.getElementById('affiliate-link').href = amazonLinks[region];
+      document.getElementById('affiliate-link-btn').href = amazonLinks[region];
     } catch (error) {
       console.error('Location detection failed. Using default Amazon link.', error);
     }
@@ -54,3 +61,4 @@
   setAffiliateLink();
 </script>
 {% endif %}
+
